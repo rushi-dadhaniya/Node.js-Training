@@ -1,4 +1,5 @@
-var calculator = {
+module.exports = function() {
+    return calculator = {
     result : 0,
 
     add : function(x){
@@ -19,5 +20,4 @@ var calculator = {
     }
 
 };
-
-module.exports = calculator;
+}
