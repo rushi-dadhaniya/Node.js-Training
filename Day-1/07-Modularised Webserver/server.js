@@ -13,15 +13,17 @@ serving /calculator requests
 not found response */
 
 var server = http.createServer(function(req, res) {
+    
+    var calcRef = calculatorRequestHandler;
 
     if(urlUtil.isStaticResource(req)) {
         staticResourseHandler.handleRequest(req, res);
     }
     else if(urlUtil.getUrlPathName(req) === "/calculator" && req.method === "GET") {
-        calculatorRequestHandler.handleGETRequest(req, res);
+        calculatorRequestHandler.handleGETRequest(req, res, calcRef);
     }
     else if(urlUtil.getUrlPathName(req) === "/calculator" && req.method === "POST") {
-        calculatorRequestHandler.handlePOSTRequest(req, res);
+        calculatorRequestHandler.handlePOSTRequest(req, res, calcRef);
     }
 
     else {
