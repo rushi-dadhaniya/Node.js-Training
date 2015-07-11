@@ -9,13 +9,29 @@
                 var btnSend = document.getElementById("btnSend");
                 btnSend.addEventListener("click", onBtnSendClick);
 
-                socket = new WebSocket("ws://139.126.244.37:9090");
+                socket = new WebSocket("ws://139.126.244.26:9090");
                 socket.addEventListener("message", onSocketMessage);
+
+                socket1 = new WebSocket("ws://139.126.244.38:9191");
+                socket1.addEventListener("message", onSocketMessage);
+
+                socket2 = new WebSocket("ws://139.126.244.37:9090");
+                socket2.addEventListener("message", onSocketMessage);
+
+                socket3 = new WebSocket("ws://139.126.244.34:9090");
+                socket3.addEventListener("message", onSocketMessage);
+
+
             }
 
             function onBtnSendClick() {
                 var msg = document.getElementById("textMessage").value;
                 socket.send(msg);
+                socket1.send(msg);
+                socket2.send(msg);
+                socket3.send(msg);
+
+
             }
 
             function onSocketMessage(evtArg) {
